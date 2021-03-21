@@ -1,18 +1,7 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
+    print(f'Hi, {name}')
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
     board = [
         [7, 8, 0, 4, 0, 0, 1, 2, 0],
         [6, 0, 0, 0, 7, 5, 0, 0, 9],
@@ -25,7 +14,7 @@ if __name__ == '__main__':
         [0, 4, 9, 2, 0, 6, 0, 0, 7]
     ]
 
-    def print_board(bo):
+    def print_board(bo): # اعدادات طباعة البورد
         for i in range(len(bo)): # for whole board *عاموديا*
             if i % 3 == 0 and i != 0: # اذا وصل لثلاث خانات افقياً و ما كان عند اول خانة فا يطبع الفاصل الافقي بين المجموعات
                 print("- - - - - - - - - - - - - ") #each 3 rows indivaduale
@@ -40,7 +29,6 @@ if __name__ == '__main__':
                 else:  # يطبع اخر جزء من الاعداد حسب طول البورد و يطبع نهاية السطر بدون الانتقال لجديد
                     print(str(bo[i][j]) + " ", end="")
 
-
     def find_empty(bo): # لإرجاع الخانات التي تحتوي على صفر ك بوزيشن ، و اذا ما لقى فا عادي ينهيها
         for i in range(len(bo)):
             for j in range(len(bo[0])):
@@ -48,6 +36,6 @@ if __name__ == '__main__':
                     return (i, j)  # row, col
 
         return None
-
+# print_board(board) للتحقق فقط
 
 
