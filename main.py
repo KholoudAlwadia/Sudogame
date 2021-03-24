@@ -1,3 +1,7 @@
+#Part 1
+import valid as valid
+
+
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')
@@ -37,5 +41,39 @@ if __name__ == '__main__':
 
         return None
 # print_board(board) للتحقق فقط
+
+#Part2 8:30 min
+
+board = [
+    [7,8,0,4,0,0,1,2,0],
+    [6,0,0,0,7,5,0,0,9],
+    [0,0,0,6,0,1,0,7,8],
+    [0,0,7,0,4,0,2,6,0],
+    [0,0,1,0,5,0,9,3,0],
+    [9,0,4,0,6,0,0,0,5],
+    [0,7,0,3,0,0,0,1,2],
+    [1,2,0,0,0,7,4,0,0],
+    [0,4,9,2,0,6,0,0,7]
+]
+
+def solve(bo):
+    find = find_empty(bo) #يسند قيمة الخانة الفارغة للقيمة
+    if not find: # يتحقق من ان الخانه ليست فارغة من خلال القيمة المسند اليها مسبقاُ
+        return True # يرجع صح
+    else: # او يجعل البوزيشين المتكون من الثف و العامود فارغ
+        row, col = find
+
+    for i in range(1,10):  #لكل خانة في البورد
+        if valid(bo, i, (row, col)): # اذا ان القيمة موجودة فسيقوم باسناد قيمة لكل بوزيشن
+            bo[row][col] = i
+            if solve(bo): # و يستدعي دالة التحقق اذا الخانة فارغة ليكمل الحل او ليرجع القيمة خطأ و يرجع البوزيشن 0 و يتيح له من خلال اللوب بان يجرب قيم اخرى
+                return True
+            bo[row][col] = 0
+    return False
+
+
+
+
+
 
 
